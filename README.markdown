@@ -48,18 +48,19 @@ The chatbot employs a **Hybrid RAG** approach, integrating two retrieval methods
 The following diagram illustrates the flow of the Hybrid RAG pipeline:
 
 ```mermaid
-graph LR
-    A[User Query] --> B[Hybrid Retriever]
-    B --> C[Vector Search (Chroma)]
-    C --> D[Embeddings (OllamaEmbeddings)]
-    B --> E[Keyword Search (BM25)]
-    C --> F[Retrieved Documents]
+flowchart LR
+    A(["User Query"])
+    A --> B["Hybrid Retriever"]
+    B --> C["Vector Search (Chroma)"]
+    C --> D["Embeddings (OllamaEmbeddings)"]
+    B --> E["Keyword Search (BM25)"]
+    C --> F["Retrieved Documents"]
     E --> F
-    F --> G[Formatter]
-    G --> H[Prompt Template]
-    H --> I[LLM]
-    I --> J[Output Parser]
-    J --> K[Response]
+    F --> G["Formatter"]
+    G --> H["Prompt Template"]
+    H --> I["LLM"]
+    I --> J["Output Parser"]
+    J --> K["Response"]
 ```
 
 This diagram can be rendered in GitHub to visualize the pipeline from query to response.
